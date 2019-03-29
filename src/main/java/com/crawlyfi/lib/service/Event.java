@@ -27,7 +27,14 @@ public class Event {
         getMessage().setSourceList(sourceList);        
         publish();
     }
-  
+
+    public Event(Producer producer, Message message) {        
+        setProducer(producer);        
+        setMessage(message);        
+        publish();
+    }    
+    
+
 	public void publish() {
 		Gson gson = new GsonBuilder().disableHtmlEscaping().create();        
         setPayload(gson.toJson(message));
