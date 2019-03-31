@@ -16,8 +16,6 @@ public class Source {
     private String[] valueList;
     private Boolean valueIsList = false;
 
-
-
     /**
      * @return the variable
      */
