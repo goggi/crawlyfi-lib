@@ -6,7 +6,6 @@ import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.Envelope;
 import com.rabbitmq.client.ShutdownSignalException;
 
-
 /**
  * The endpoint that consumes messages off of the queue. Happens to be runnable.
  * @author syntx
