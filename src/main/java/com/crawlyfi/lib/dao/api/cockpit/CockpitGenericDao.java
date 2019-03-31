@@ -8,6 +8,8 @@ import org.json.JSONObject;
 public class CockpitGenericDao<T> extends ApiGenericDao<T> {
   
     private JSONObject filter = new JSONObject();
+    private JSONObject data = new JSONObject();
+
     public CockpitGenericDao(String apiUrl) {
         super(apiUrl);
     }
@@ -19,20 +21,31 @@ public class CockpitGenericDao<T> extends ApiGenericDao<T> {
         return null;
     }
 
+
+    @Override
+    public T save(Object id) {        
+        callCockpitAPI();
+        return null;
+    }    
+
     protected void callCockpitAPI() {
-        setBody(buildBody());            
+        setBody(buildResponseBody());            
         JSONArray entires = callApi().getBody().getObject().getJSONArray("entries");
         if(entiriesExist(entires))
             setRespons(entires.getJSONObject(0));        
     }
 
-    @Override
-	protected JSONObject buildBody() {
+	protected JSONObject buildResponseBody() {
         return new JSONObject()
         .put("filter", getFilter())
         .put("limit", 1)
         ; 		
     }
+
+    protected JSONObject buildSaveBody() {
+        return new JSONObject()
+        .put("data", getData()); 		
+    }    
 
     protected JSONArray getJSONArrayFromRespons(String attribute){
         return  getRespons().getJSONArray(attribute);
@@ -64,6 +77,20 @@ public class CockpitGenericDao<T> extends ApiGenericDao<T> {
      */
     public void setFilter(JSONObject filter) {
         this.filter = filter;
+    }
+
+    /**
+     * @return the data
+     */
+    public JSONObject getData() {
+        return data;
+    }
+
+    /**
+     * @param data the data to set
+     */
+    public void setData(JSONObject data) {
+        this.data = data;
     }
 
 }
