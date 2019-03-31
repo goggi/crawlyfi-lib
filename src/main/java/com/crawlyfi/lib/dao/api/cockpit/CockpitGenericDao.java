@@ -6,30 +6,30 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class CockpitGenericDao<T> extends ApiGenericDao<T> {
-
-    private String IdAttribute = "_id";
-
+  
+    private JSONObject filter = new JSONObject();
     public CockpitGenericDao(String apiUrl) {
         super(apiUrl);
     }
 
     @Override
-    public T findById(Object id) {        
-        setBody(buildBody(id));                
-        JSONArray entires = callApi().getBody().getObject().getJSONArray("entries");
-        if(entiriesExist(entires))
-            setRespons(entires.getJSONObject(0));
-        
+    public T findById(Object id) {
+        getFilter().put("_id", id);
+        callCockpitAPI();
         return null;
     }
 
-	@Override
-	protected JSONObject buildBody(Object id) {
+    protected void callCockpitAPI() {
+        setBody(buildBody());            
+        JSONArray entires = callApi().getBody().getObject().getJSONArray("entries");
+        if(entiriesExist(entires))
+            setRespons(entires.getJSONObject(0));        
+    }
+
+    @Override
+	protected JSONObject buildBody() {
         return new JSONObject()
-        .put("filter", new JSONObject()
-			.put(getIdAttribute(), (String) id      
-            )        
-        )
+        .put("filter", getFilter())
         .put("limit", 1)
         ; 		
     }
@@ -47,18 +47,19 @@ public class CockpitGenericDao<T> extends ApiGenericDao<T> {
             return true;
         return false;
     }
+
     /**
-     * @return the idAttribute
+     * @return the filter
      */
-    public String getIdAttribute() {
-        return IdAttribute;
+    public JSONObject getFilter() {
+        return filter;
     }
 
     /**
-     * @param idAttribute the idAttribute to set
+     * @param filter the filter to set
      */
-    public void setIdAttribute(String idAttribute) {
-        this.IdAttribute = idAttribute;
+    public void setFilter(JSONObject filter) {
+        this.filter = filter;
     }
 
 }

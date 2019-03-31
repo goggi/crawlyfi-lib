@@ -14,7 +14,7 @@ public abstract class ApiGenericDao<T> extends GenericDao<T> {
     private JSONObject body;
     private JSONObject respons;
 
-    protected abstract JSONObject buildBody(Object parameter);
+    protected abstract JSONObject buildBody();
 
     public ApiGenericDao(String apiUrl){
         setApiUrl(apiUrl);
