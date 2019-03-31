@@ -9,7 +9,7 @@ public class Message {
     private String crawlerId;
     private Integer rowId;
     private ArrayList<Variable> variableList;
-    private ArrayList<Source> sourceList;
+    private ArrayList<Source> sourceList;    
 
     /**
      * @return the messageId

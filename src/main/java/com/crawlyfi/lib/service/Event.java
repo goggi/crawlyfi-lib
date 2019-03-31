@@ -38,7 +38,7 @@ public class Event {
 	public void publish() {
 		Gson gson = new GsonBuilder().disableHtmlEscaping().create();        
         setPayload(gson.toJson(message));
-        System.out.println(getPayload());
+        //System.out.println(getPayload());
         try {
             producer.sendMessage(getPayload());
 		} catch (IOException e) {
