@@ -1,6 +1,7 @@
 package com.crawlyfi.lib.dao.core;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 public class GenericDao<T> implements IGenericDao<T> {
 
@@ -10,8 +11,7 @@ public class GenericDao<T> implements IGenericDao<T> {
     }
 
     @Override
-    public T save(Object id) {
-        return null;
+    public void save(HashMap<String, String> values) {
     }
 
 }

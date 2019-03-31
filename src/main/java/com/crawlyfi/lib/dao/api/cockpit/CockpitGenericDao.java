@@ -7,35 +7,33 @@ import org.json.JSONObject;
 
 public class CockpitGenericDao<T> extends ApiGenericDao<T> {
   
+    private String cockpitUrl;
     private JSONObject filter = new JSONObject();
     private JSONObject data = new JSONObject();
+    private String collection;
 
-    public CockpitGenericDao(String apiUrl) {
-        super(apiUrl);
+    public CockpitGenericDao() {
     }
 
     @Override
     public T findById(Object id) {
+        setApiUrl(getCockpitUrl()+"/get/"+getCollection());
         getFilter().put("_id", id);
         setBody(buildResponseBody());            
-        callCockpitAPI();
+        fetchFromApi();
         return null;
     }
 
-
-    @Override
-    public T save(Object id) {        
-        callCockpitAPI();
-        setBody(buildSaveBody());            
-
-        return null;
-    }    
-
-    protected void callCockpitAPI() {
+    protected void fetchFromApi(){
         JSONArray entires = callApi().getBody().getObject().getJSONArray("entries");
         if(entiriesExist(entires))
             setRespons(entires.getJSONObject(0));        
     }
+
+    protected void saveToApi() {
+        callApi();
+    }
+
 	protected JSONObject buildResponseBody() {
         return new JSONObject()
         .put("filter", getFilter())
@@ -69,29 +67,57 @@ public class CockpitGenericDao<T> extends ApiGenericDao<T> {
     /**
      * @return the filter
      */
-    public JSONObject getFilter() {
+    protected JSONObject getFilter() {
         return filter;
     }
 
     /**
      * @param filter the filter to set
      */
-    public void setFilter(JSONObject filter) {
+    protected void setFilter(JSONObject filter) {
         this.filter = filter;
     }
 
     /**
      * @return the data
      */
-    public JSONObject getData() {
+    protected JSONObject getData() {
         return data;
     }
 
     /**
      * @param data the data to set
      */
-    public void setData(JSONObject data) {
+    protected void setData(JSONObject data) {
         this.data = data;
+    }
+
+    /**
+     * @return the collection
+     */
+    protected String getCollection() {
+        return collection;
+    }
+
+    /**
+     * @param collection the collection to set
+     */
+    protected void setCollection(String collection) {
+        this.collection = collection;
+    }
+
+    /**
+     * @return the cockpitUrl
+     */
+    public String getCockpitUrl() {
+        return cockpitUrl;
+    }
+
+    /**
+     * @param cockpitUrl the cockpitUrl to set
+     */
+    public void setCockpitUrl(String cockpitUrl) {
+        this.cockpitUrl = cockpitUrl;
     }
 
 }

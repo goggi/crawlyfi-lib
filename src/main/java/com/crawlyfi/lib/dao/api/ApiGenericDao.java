@@ -14,8 +14,7 @@ public abstract class ApiGenericDao<T> extends GenericDao<T> {
     private JSONObject body;
     private JSONObject respons;
 
-    public ApiGenericDao(String apiUrl){
-        setApiUrl(apiUrl);
+    public ApiGenericDao(){
     }
 
     @Override
@@ -69,14 +68,14 @@ public abstract class ApiGenericDao<T> extends GenericDao<T> {
     /**
      * @return the respons
      */
-    public JSONObject getRespons() {
+    protected JSONObject getRespons() {
         return respons;
     }
 
     /**
      * @param respons the respons to set
      */
-    public void setRespons(JSONObject respons) {
+    protected void setRespons(JSONObject respons) {
         this.respons = respons;
     }
 
