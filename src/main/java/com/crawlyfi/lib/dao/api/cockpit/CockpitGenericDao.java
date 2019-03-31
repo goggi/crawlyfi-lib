@@ -17,6 +17,7 @@ public class CockpitGenericDao<T> extends ApiGenericDao<T> {
     @Override
     public T findById(Object id) {
         getFilter().put("_id", id);
+        setBody(buildResponseBody());            
         callCockpitAPI();
         return null;
     }
@@ -25,16 +26,16 @@ public class CockpitGenericDao<T> extends ApiGenericDao<T> {
     @Override
     public T save(Object id) {        
         callCockpitAPI();
+        setBody(buildSaveBody());            
+
         return null;
     }    
 
     protected void callCockpitAPI() {
-        setBody(buildResponseBody());            
         JSONArray entires = callApi().getBody().getObject().getJSONArray("entries");
         if(entiriesExist(entires))
             setRespons(entires.getJSONObject(0));        
     }
-
 	protected JSONObject buildResponseBody() {
         return new JSONObject()
         .put("filter", getFilter())
