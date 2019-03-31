@@ -7,15 +7,15 @@ import org.json.JSONObject;
 
 public class CockpitGenericDao<T> extends ApiGenericDao<T> {
 
+    private String IdAttribute = "_id";
 
     public CockpitGenericDao(String apiUrl) {
-        super(apiUrl);        
+        super(apiUrl);
     }
 
     @Override
     public T findById(Object id) {        
-        setBody(buildBody(id));        
-        
+        setBody(buildBody(id));                
         JSONArray entires = callApi().getBody().getObject().getJSONArray("entries");
         if(entiriesExist(entires))
             setRespons(entires.getJSONObject(0));
@@ -27,7 +27,7 @@ public class CockpitGenericDao<T> extends ApiGenericDao<T> {
 	protected JSONObject buildBody(Object id) {
         return new JSONObject()
         .put("filter", new JSONObject()
-			.put("_id", (String) id      
+			.put(getIdAttribute(), (String) id      
             )        
         )
         .put("limit", 1)
@@ -46,6 +46,19 @@ public class CockpitGenericDao<T> extends ApiGenericDao<T> {
         if(crawlerEntriesList != null && crawlerEntriesList.length() > 0 )
             return true;
         return false;
+    }
+    /**
+     * @return the idAttribute
+     */
+    public String getIdAttribute() {
+        return IdAttribute;
+    }
+
+    /**
+     * @param idAttribute the idAttribute to set
+     */
+    public void setIdAttribute(String idAttribute) {
+        this.IdAttribute = idAttribute;
     }
 
 }
