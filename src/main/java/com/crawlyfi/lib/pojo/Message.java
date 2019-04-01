@@ -5,11 +5,11 @@ import java.util.UUID;
 
 public class Message {
     private UUID messageId = UUID.randomUUID();
-    private String configId;
-    private String crawlerId;
-    private Integer rowId;
-    private ArrayList<Variable> variableList;
-    private ArrayList<Source> sourceList;    
+    private String configId = "";
+    private String crawlerId = "";
+    private Integer rowId = -1;
+    private ArrayList<Variable> variableList = new ArrayList<Variable>();
+    private ArrayList<Source> sourceList = new ArrayList<Source>();    
 
     /**
      * @return the messageId
