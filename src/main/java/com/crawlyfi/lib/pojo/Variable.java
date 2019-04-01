@@ -19,10 +19,10 @@ public class Variable {
     private Boolean list;
 
     @SerializedName("value")
-    private String rule;
-
     private String value;
-    private ArrayList<String> valueList;    
+
+    private String newValue;
+    private ArrayList<String> newValueList;    
 
     /**
      * @return the variable
@@ -95,32 +95,33 @@ public class Variable {
     }
 
     /**
-     * @return the rule
+     * @return the newValue
      */
-    public String getRule() {
-        return rule;
+    public String getNewValue() {
+        return newValue;
     }
 
     /**
-     * @param rule the rule to set
+     * @param newValue the newValue to set
      */
-    public void setRule(String rule) {
-        this.rule = rule;
+    public void setNewValue(String newValue) {
+        this.newValue = newValue;
     }
 
     /**
-     * @return the valueList
+     * @return the newValueList
      */
-    public ArrayList<String> getValueList() {
-        return valueList;
+    public ArrayList<String> getNewValueList() {
+        return newValueList;
     }
 
     /**
-     * @param valueList the valueList to set
+     * @param newValueList the newValueList to set
      */
-    public void setValueList(ArrayList<String> valueList) {
-        this.valueList = valueList;
+    public void setNewValueList(ArrayList<String> newValueList) {
+        this.newValueList = newValueList;
     }
+
 
 
 }
