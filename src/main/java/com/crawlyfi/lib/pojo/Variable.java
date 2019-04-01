@@ -7,22 +7,22 @@ import com.google.gson.annotations.SerializedName;
 public class Variable {
 
     @SerializedName("variable")
-    private String variable;
+    private String variable = "";
 
     @SerializedName("source")
-    private String source;    
+    private String source = "";    
 
     @SerializedName("type")
-    private String type;
+    private String type = "";
 
     @SerializedName("list")
-    private Boolean list;
+    private Boolean list = false;
 
     @SerializedName("value")
-    private String value;
+    private String value = "";
 
-    private String newValue;
-    private ArrayList<String> newValueList;    
+    private String newValue = "";
+    private ArrayList<String> newValueList = new  ArrayList<String>();    
 
     /**
      * @return the variable

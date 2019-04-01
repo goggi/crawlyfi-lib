@@ -7,10 +7,10 @@ import com.google.gson.annotations.SerializedName;
 public class Source {
 
     @SerializedName("source_variable")
-    private String variable;
+    private String variable = "";
 
     @SerializedName("source_type")
-    private String type;    
+    private String type = "";    
 
     @SerializedName("source_value")
     private String value = "";
