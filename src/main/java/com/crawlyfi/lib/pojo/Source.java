@@ -1,5 +1,7 @@
 package com.crawlyfi.lib.pojo;
 
+import java.util.ArrayList;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Source {
@@ -13,7 +15,7 @@ public class Source {
     @SerializedName("source_value")
     private String value = "";
 
-    private String[] valueList;
+    private ArrayList<String> valueList;
     private Boolean valueIsList = false;
 
     /**
@@ -59,20 +61,6 @@ public class Source {
     }
 
     /**
-     * @return the valueList
-     */
-    public String[] getValueList() {
-        return valueList;
-    }
-
-    /**
-     * @param valueList the valueList to set
-     */
-    public void setValueList(String[] valueList) {
-        this.valueList = valueList;
-    }
-
-    /**
      * @return the valueIsList
      */
     public Boolean isValueList() {
@@ -84,6 +72,27 @@ public class Source {
      */
     public void setValueIsList(Boolean valueIsList) {
         this.valueIsList = valueIsList;
+    }
+
+    /**
+     * @return the valueList
+     */
+    public ArrayList<String> getValueList() {
+        return valueList;
+    }
+
+    /**
+     * @param valueList the valueList to set
+     */
+    public void setValueList(ArrayList<String> valueList) {
+        this.valueList = valueList;
+    }
+
+    /**
+     * @return the valueIsList
+     */
+    public Boolean getValueIsList() {
+        return valueIsList;
     }
 
 }
