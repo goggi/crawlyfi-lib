@@ -15,7 +15,7 @@ public class Source {
     @SerializedName("source_value")
     private String value = "";
 
-    private ArrayList<String> valueList;
+    private ArrayList<String> valueList = new ArrayList<String>();
     private Boolean valueIsList = false;
 
     /**
