@@ -16,7 +16,25 @@ public class Source {
     private String value = "";
 
     private ArrayList<String> valueList = new ArrayList<String>();
-    private Boolean valueIsList = false;
+
+    public Source(){
+        
+    }
+
+    public Source(Source source) {
+        setType(new String(source.getType()));
+        setValue(new String(source.getValue()));
+        setValueList(cloneValueList(source.getValueList()));
+        setVariable(new String(source.getVariable()));        
+    }
+    
+    public static ArrayList<String> cloneValueList(ArrayList<String> sourceList) {
+        ArrayList<String> clonedList = new ArrayList<String>(sourceList.size());
+        for (String source : sourceList) {
+            clonedList.add(new String(source));
+        }
+        return clonedList;
+    }
 
     /**
      * @return the variable
@@ -61,20 +79,6 @@ public class Source {
     }
 
     /**
-     * @return the valueIsList
-     */
-    public Boolean isValueList() {
-        return valueIsList;
-    }
-
-    /**
-     * @param valueIsList the valueIsList to set
-     */
-    public void setValueIsList(Boolean valueIsList) {
-        this.valueIsList = valueIsList;
-    }
-
-    /**
      * @return the valueList
      */
     public ArrayList<String> getValueList() {
@@ -86,13 +90,6 @@ public class Source {
      */
     public void setValueList(ArrayList<String> valueList) {
         this.valueList = valueList;
-    }
-
-    /**
-     * @return the valueIsList
-     */
-    public Boolean getValueIsList() {
-        return valueIsList;
     }
 
 }
