@@ -22,6 +22,6 @@ public class Factory {
 	 * @param message the message to set
 	 */
 	public void setMessage(Message message) {
-        setMessage(message);        
+        this.message = message;        
 	}
 }
