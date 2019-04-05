@@ -10,7 +10,7 @@ public class Source {
     private String variable = "";
 
     @SerializedName("source_type")
-    private String type = "";    
+    private String type = "";
 
     @SerializedName("source_value")
     private String value = "";
@@ -18,16 +18,16 @@ public class Source {
     private ArrayList<String> valueList = new ArrayList<String>();
 
     public Source(){
-        
+
     }
 
     public Source(Source source) {
         setType(new String(source.getType()));
         setValue(new String(source.getValue()));
         setValueList(cloneValueList(source.getValueList()));
-        setVariable(new String(source.getVariable()));        
+        setVariable(new String(source.getVariable()));
     }
-    
+
     public static ArrayList<String> cloneValueList(ArrayList<String> sourceList) {
         ArrayList<String> clonedList = new ArrayList<String>(sourceList.size());
         for (String source : sourceList) {

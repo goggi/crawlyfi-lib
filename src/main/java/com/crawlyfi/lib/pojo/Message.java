@@ -7,10 +7,10 @@ public class Message {
     private UUID messageId = UUID.randomUUID();
     private String configId = "";
     private String crawlerInstanceId = "";
-    private String crawlerId = "";    
+    private String crawlerId = "";
     private Integer rowId = -1;
     private ArrayList<Variable> variableList = new ArrayList<Variable>();
-    private ArrayList<Source> sourceList = new ArrayList<Source>();    
+    private ArrayList<Source> sourceList = new ArrayList<Source>();
 
     /**
      * @return the messageId

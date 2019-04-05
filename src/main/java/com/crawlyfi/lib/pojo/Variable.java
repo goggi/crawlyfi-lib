@@ -10,7 +10,7 @@ public class Variable {
     private String variable = "";
 
     @SerializedName("source")
-    private String source = "";    
+    private String source = "";
 
     @SerializedName("type")
     private String type = "";
@@ -22,7 +22,7 @@ public class Variable {
     private String value = "";
 
     private String newValue = "";
-    private ArrayList<String> newValueList = new  ArrayList<String>();    
+    private ArrayList<String> newValueList = new  ArrayList<String>();
 
     /**
      * @return the variable

@@ -13,30 +13,31 @@ import com.google.gson.GsonBuilder;
 public class Event {
 
     private Message message;
-    private Event parentEvent;     
+    private Event parentEvent;
     private Producer producer;
     private String payload;
 
-    public Event(Producer producer, String configId, String crawlerId, ArrayList<Variable> variableList, ArrayList<Source> sourceList, Integer rowId) {        
-        setProducer(producer);        
+    public Event(Producer producer, String configId, String crawlerId, String crawlerInstaceId, ArrayList<Variable> variableList, ArrayList<Source> sourceList, Integer rowId) {
+        setProducer(producer);
         setMessage(new Message());
         getMessage().setConfigId(configId);
         getMessage().setCrawlerId(crawlerId);
+        getMessage().setCrawlerInstanceId(crawlerInstaceId);
         getMessage().setRowId(rowId);
         getMessage().setVariableList(variableList);
-        getMessage().setSourceList(sourceList);        
+        getMessage().setSourceList(sourceList);
         publish();
     }
 
-    public Event(Producer producer, Message message) {        
-        setProducer(producer);        
-        setMessage(message);        
+    public Event(Producer producer, Message message) {
+        setProducer(producer);
+        setMessage(message);
         publish();
-    }    
-    
+    }
+
 
 	public void publish() {
-		Gson gson = new GsonBuilder().disableHtmlEscaping().create();        
+		Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         setPayload(gson.toJson(message));
         //System.out.println(getPayload());
         try {
