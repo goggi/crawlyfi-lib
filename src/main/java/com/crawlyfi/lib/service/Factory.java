@@ -7,12 +7,15 @@ import com.crawlyfi.lib.pojo.Message;
 import com.google.gson.Gson;
 
 public class Factory {
-	
+
 	private Message message;
 	private HashMap<String, Producer> producerList;
 
-	public Factory(String payload){
-		setMessage(new Gson().fromJson(payload, Message.class));        
+	public Factory(){
+	}
+
+	public Message createMessage(String payload) {
+		return new Gson().fromJson(payload, Message.class);
 	}
 
 	/**
@@ -26,7 +29,7 @@ public class Factory {
 	 * @param message the message to set
 	 */
 	public void setMessage(Message message) {
-        this.message = message;        
+        this.message = message;
 	}
 
 	/**

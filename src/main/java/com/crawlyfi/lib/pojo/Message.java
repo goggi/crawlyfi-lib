@@ -6,7 +6,8 @@ import java.util.UUID;
 public class Message {
     private UUID messageId = UUID.randomUUID();
     private String configId = "";
-    private String crawlerId = "";
+    private String crawlerInstanceId = "";
+    private String crawlerId = "";    
     private Integer rowId = -1;
     private ArrayList<Variable> variableList = new ArrayList<Variable>();
     private ArrayList<Source> sourceList = new ArrayList<Source>();    
@@ -93,5 +94,19 @@ public class Message {
      */
     public void setSourceList(ArrayList<Source> sourceList) {
         this.sourceList = sourceList;
+    }
+
+    /**
+     * @return the crawlerInstanceId
+     */
+    public String getCrawlerInstanceId() {
+        return crawlerInstanceId;
+    }
+
+    /**
+     * @param crawlerInstanceId the crawlerInstanceId to set
+     */
+    public void setCrawlerInstanceId(String crawlerInstanceId) {
+        this.crawlerInstanceId = crawlerInstanceId;
     }
 }
