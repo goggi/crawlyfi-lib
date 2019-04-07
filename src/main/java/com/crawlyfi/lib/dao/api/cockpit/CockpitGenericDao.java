@@ -54,6 +54,10 @@ public class CockpitGenericDao<T> extends ApiGenericDao<T> {
         return  getRespons().getJSONObject(attribute);
     }    
 
+    protected String getAttribute(String attribute){
+        return  getRespons().getString(attribute);
+    }       
+
     protected String getCollectionId(JSONObject collection){                    
         return collection.getString("_id");
     }

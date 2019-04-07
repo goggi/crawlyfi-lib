@@ -4,50 +4,50 @@ import java.util.ArrayList;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Source {
+public class Input {
 
-    @SerializedName("source_variable")
-    private String variable = "";
+    @SerializedName("input")
+    private String input = "";
 
-    @SerializedName("source_type")
+    @SerializedName("type")
     private String type = "";
 
-    @SerializedName("source_value")
+    @SerializedName("value")
     private String value = "";
 
     private ArrayList<String> valueList = new ArrayList<String>();
 
-    public Source(){
+    public Input(){
 
     }
 
-    public Source(Source source) {
-        setType(new String(source.getType()));
-        setValue(new String(source.getValue()));
-        setValueList(cloneValueList(source.getValueList()));
-        setVariable(new String(source.getVariable()));
+    public Input(Input input) {
+        setType(new String(input.getType()));
+        setValue(new String(input.getValue()));
+        setValueList(cloneValueList(input.getValueList()));
+        setInput(new String(input.getInput()));
     }
 
-    public static ArrayList<String> cloneValueList(ArrayList<String> sourceList) {
-        ArrayList<String> clonedList = new ArrayList<String>(sourceList.size());
-        for (String source : sourceList) {
-            clonedList.add(new String(source));
+    public static ArrayList<String> cloneValueList(ArrayList<String> inputList) {
+        ArrayList<String> clonedList = new ArrayList<String>(inputList.size());
+        for (String input : inputList) {
+            clonedList.add(new String(input));
         }
         return clonedList;
     }
 
     /**
-     * @return the variable
+     * @return the input
      */
-    public String getVariable() {
-        return variable;
+    public String getInput() {
+        return input;
     }
 
     /**
-     * @param variable the variable to set
+     * @param input the input to set
      */
-    public void setVariable(String variable) {
-        this.variable = variable;
+    public void setInput(String input) {
+        this.input = input;
     }
 
     /**

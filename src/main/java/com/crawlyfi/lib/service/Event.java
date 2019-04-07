@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.crawlyfi.lib.pojo.Message;
-import com.crawlyfi.lib.pojo.Source;
-import com.crawlyfi.lib.pojo.Variable;
+import com.crawlyfi.lib.pojo.Input;
+import com.crawlyfi.lib.pojo.Output;
 import com.crawlyfi.lib.message_broker.Producer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -16,18 +16,6 @@ public class Event {
     private Event parentEvent;
     private Producer producer;
     private String payload;
-
-    public Event(Producer producer, String configId, String crawlerId, String crawlerInstaceId, ArrayList<Variable> variableList, ArrayList<Source> sourceList, Integer rowId) {
-        setProducer(producer);
-        setMessage(new Message());
-        getMessage().setConfigId(configId);
-        getMessage().setCrawlerId(crawlerId);
-        getMessage().setCrawlerInstanceId(crawlerInstaceId);
-        getMessage().setRowId(rowId);
-        getMessage().setVariableList(variableList);
-        getMessage().setSourceList(sourceList);
-        publish();
-    }
 
     public Event(Producer producer, Message message) {
         setProducer(producer);

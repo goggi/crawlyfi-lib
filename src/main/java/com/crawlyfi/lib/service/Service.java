@@ -15,7 +15,7 @@ public class Service {
 		readProperties();
 		setMessageBrokerSettings();
 	}
-	
+
 	protected  void readProperties() {
 		String resourceName = "config.properties"; // could also be a constant
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();
@@ -28,9 +28,9 @@ public class Service {
 	}
 
 	protected void setMessageBrokerSettings(){
-		messageBrokerSettings[0] = properties.getProperty("rabbitHost"); 
-		messageBrokerSettings[1] = properties.getProperty("rabbitPort"); 
-		messageBrokerSettings[2] = properties.getProperty("rabbitUser"); 
+		messageBrokerSettings[0] = properties.getProperty("rabbitHost");
+		messageBrokerSettings[1] = properties.getProperty("rabbitPort");
+		messageBrokerSettings[2] = properties.getProperty("rabbitUser");
 		messageBrokerSettings[3] = properties.getProperty("rabbitPassword");
 	}
 
@@ -54,7 +54,7 @@ public class Service {
 		}
 		setMessageBrokerSettings();
 		printProperties();
-	}	
+	}
 
 	/**
 	 * @return the properties

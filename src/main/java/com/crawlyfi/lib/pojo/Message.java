@@ -5,12 +5,15 @@ import java.util.UUID;
 
 public class Message {
     private UUID messageId = UUID.randomUUID();
+    private String configName = "";
     private String configId = "";
-    private String crawlerInstanceId = "";
     private String crawlerId = "";
+    private String crawlerInstanceId = "";
+    private String projectName = "";
+    private String crawlerName = "";
     private Integer rowId = -1;
-    private ArrayList<Variable> variableList = new ArrayList<Variable>();
-    private ArrayList<Source> sourceList = new ArrayList<Source>();
+    private ArrayList<Input> inputList = new ArrayList<>();
+    private ArrayList<Output> outputList = new ArrayList<>();
 
     /**
      * @return the messageId
@@ -24,6 +27,20 @@ public class Message {
      */
     public void setMessageId(UUID messageId) {
         this.messageId = messageId;
+    }
+
+    /**
+     * @return the configname
+     */
+    public String getConfigName() {
+        return configName;
+    }
+
+    /**
+     * @param configname the configname to set
+     */
+    public void setConfigName(String configname) {
+        this.configName = configname;
     }
 
     /**
@@ -55,6 +72,34 @@ public class Message {
     }
 
     /**
+     * @return the crawlerInstanceId
+     */
+    public String getCrawlerInstanceId() {
+        return crawlerInstanceId;
+    }
+
+    /**
+     * @param crawlerInstanceId the crawlerInstanceId to set
+     */
+    public void setCrawlerInstanceId(String crawlerInstanceId) {
+        this.crawlerInstanceId = crawlerInstanceId;
+    }
+
+    /**
+     * @return the crawlerName
+     */
+    public String getCrawlerName() {
+        return crawlerName;
+    }
+
+    /**
+     * @param crawlerName the crawlerName to set
+     */
+    public void setCrawlerName(String crawlerName) {
+        this.crawlerName = crawlerName;
+    }
+
+    /**
      * @return the rowId
      */
     public Integer getRowId() {
@@ -69,44 +114,46 @@ public class Message {
     }
 
     /**
-     * @return the variableList
+     * @return the inputList
      */
-    public ArrayList<Variable> getVariableList() {
-        return variableList;
+    public ArrayList<Input> getInputList() {
+        return inputList;
     }
 
     /**
-     * @param variableList the variableList to set
+     * @param inputList the inputList to set
      */
-    public void setVariableList(ArrayList<Variable> variableList) {
-        this.variableList = variableList;
+    public void setInputList(ArrayList<Input> inputList) {
+        this.inputList = inputList;
     }
 
     /**
-     * @return the sourceList
+     * @return the outputList
      */
-    public ArrayList<Source> getSourceList() {
-        return sourceList;
+    public ArrayList<Output> getOutputList() {
+        return outputList;
     }
 
     /**
-     * @param sourceList the sourceList to set
+     * @param outputList the outputList to set
      */
-    public void setSourceList(ArrayList<Source> sourceList) {
-        this.sourceList = sourceList;
+    public void setOutputList(ArrayList<Output> outputList) {
+        this.outputList = outputList;
     }
 
     /**
-     * @return the crawlerInstanceId
+     * @return the projectName
      */
-    public String getCrawlerInstanceId() {
-        return crawlerInstanceId;
+    public String getProjectName() {
+        return projectName;
     }
 
     /**
-     * @param crawlerInstanceId the crawlerInstanceId to set
+     * @param projectName the projectName to set
      */
-    public void setCrawlerInstanceId(String crawlerInstanceId) {
-        this.crawlerInstanceId = crawlerInstanceId;
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
+
+
 }
