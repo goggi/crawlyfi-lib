@@ -3,6 +3,7 @@ package com.crawlyfi.lib.service;
 import java.util.HashMap;
 
 import com.crawlyfi.lib.message_broker.Producer;
+import com.crawlyfi.lib.pojo.Input;
 import com.crawlyfi.lib.pojo.Message;
 import com.google.gson.Gson;
 

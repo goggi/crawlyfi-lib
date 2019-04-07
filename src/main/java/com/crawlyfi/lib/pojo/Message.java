@@ -15,6 +15,21 @@ public class Message {
     private ArrayList<Input> inputList = new ArrayList<>();
     private ArrayList<Output> outputList = new ArrayList<>();
 
+
+	public Input getInput(String inputName) {
+		for(Input input : getInputList())
+			if(input.getInput().equals(inputName))
+				return input;
+		return null;
+    }
+
+	public Output getOutput(String outputName) {
+		for(Output output : getOutputList())
+			if(output.getInput().equals(outputName))
+				return output;
+		return null;
+	}
+
     /**
      * @return the messageId
      */
