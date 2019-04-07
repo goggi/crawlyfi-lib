@@ -69,7 +69,7 @@ public class Output {
     /**
      * @return the list
      */
-    public Boolean getList() {
+    public Boolean isList() {
         return list;
     }
 
