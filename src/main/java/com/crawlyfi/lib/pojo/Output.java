@@ -10,7 +10,7 @@ public class Output {
     private String output = "";
 
     @SerializedName("input")
-    private ArrayList<String> input = new ArrayList<>();
+    private String input = "";
 
     @SerializedName("type")
     private String type = "";
@@ -108,25 +108,26 @@ public class Output {
         this.valueList = valueList;
     }
 
-    /**
-     * @return the input
-     */
-    public ArrayList<String> getInput() {
-        return input;
-    }
-
-    /**
-     * @param input the input to set
-     */
-    public void setInput(ArrayList<String> input) {
-        this.input = input;
-    }
 
     /**
      * @return the list
      */
     public Boolean getList() {
         return list;
+    }
+
+    /**
+     * @return the input
+     */
+    public String getInput() {
+        return input;
+    }
+
+    /**
+     * @param input the input to set
+     */
+    public void setInput(String input) {
+        this.input = input;
     }
 
 
