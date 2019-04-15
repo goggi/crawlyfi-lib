@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class CockpitGenericDao<T> extends ApiGenericDao<T> {
-  
+
     private String cockpitUrl;
     private JSONObject filter = new JSONObject();
     private JSONObject data = new JSONObject();
@@ -19,15 +19,13 @@ public class CockpitGenericDao<T> extends ApiGenericDao<T> {
     public T findById(Object id) {
         setApiUrl(getCockpitUrl()+"/get/"+getCollection());
         getFilter().put("_id", id);
-        setBody(buildResponseBody());            
+        setBody(buildResponseBody().put("limit", 1));
         fetchFromApi();
         return null;
     }
 
     protected void fetchFromApi(){
-        JSONArray entires = callApi().getBody().getObject().getJSONArray("entries");
-        if(entiriesExist(entires))
-            setRespons(entires.getJSONObject(0));        
+        setRespons(callApi().getBody().getArray());
     }
 
     protected void saveToApi() {
@@ -37,28 +35,42 @@ public class CockpitGenericDao<T> extends ApiGenericDao<T> {
 	protected JSONObject buildResponseBody() {
         return new JSONObject()
         .put("filter", getFilter())
-        .put("limit", 1)
-        ; 		
+        .put("simple", 1)
+        ;
     }
 
     protected JSONObject buildSaveBody() {
         return new JSONObject()
-        .put("data", getData()); 		
-    }    
+        .put("data", getData());
+    }
 
     protected JSONArray getJSONArrayFromRespons(String attribute){
-        return  getRespons().getJSONArray(attribute);
+        try {
+            return  getRespons().getJSONObject(0).getJSONArray(attribute);
+        } catch (Exception e) {
+            return null;
+        }
+
     }
 
     protected JSONObject getJSONObjectFromRespons(String attribute){
-        return  getRespons().getJSONObject(attribute);
-    }    
+            try {
+                return getRespons().getJSONObject(0).getJSONObject(attribute);
+            } catch (Exception e) {
+                return null;
+            }
+    }
 
     protected String getAttribute(String attribute){
-        return  getRespons().getString(attribute);
-    }       
+        try {
+            return  getRespons().getJSONObject(0).getString(attribute);
+        } catch (Exception e) {
+            return "";
+        }
 
-    protected String getCollectionId(JSONObject collection){                    
+    }
+
+    protected String getCollectionId(JSONObject collection){
         return collection.getString("_id");
     }
 

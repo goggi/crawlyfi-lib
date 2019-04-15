@@ -6,13 +6,14 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public abstract class ApiGenericDao<T> extends GenericDao<T> {
 
     private String apiUrl;
     private JSONObject body;
-    private JSONObject respons;
+    private JSONArray respons;
 
     public ApiGenericDao(){
     }
@@ -68,14 +69,14 @@ public abstract class ApiGenericDao<T> extends GenericDao<T> {
     /**
      * @return the respons
      */
-    protected JSONObject getRespons() {
+    protected JSONArray getRespons() {
         return respons;
     }
 
     /**
      * @param respons the respons to set
      */
-    protected void setRespons(JSONObject respons) {
+    protected void setRespons(JSONArray respons) {
         this.respons = respons;
     }
 
