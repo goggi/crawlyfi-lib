@@ -70,7 +70,7 @@ public class Output {
     }
 
     /**
-     * @return the multiple
+     * @return the multiples
      */
     public Boolean isMultiple() {
         return multiple;
