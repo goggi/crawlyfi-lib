@@ -21,6 +21,9 @@ public class Output {
     @SerializedName("rule")
     private String rule = "";
 
+    @SerializedName("option")
+    private ArrayList<Option> option = new  ArrayList<Option>();
+
     private String value = "";
     private ArrayList<String> valueList = new  ArrayList<String>();
 
@@ -128,6 +131,20 @@ public class Output {
      */
     public void setInput(String input) {
         this.input = input;
+    }
+
+    /**
+     * @return the option
+     */
+    public ArrayList<Option> getOption() {
+        return option;
+    }
+
+    /**
+     * @param option the option to set
+     */
+    public void setOption(ArrayList<Option> option) {
+        this.option = option;
     }
 
 

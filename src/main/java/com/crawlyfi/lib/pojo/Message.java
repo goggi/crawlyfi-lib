@@ -7,6 +7,7 @@ public class Message {
     private UUID messageId = UUID.randomUUID();
     private String configName = "";
     private String configId = "";
+    private String configInstanceId = "";
     private String crawlerId = "";
     private String crawlerInstanceId = "";
     private String projectName = "";
@@ -168,6 +169,20 @@ public class Message {
      */
     public void setProjectName(String projectName) {
         this.projectName = projectName;
+    }
+
+    /**
+     * @return the configInstanceId
+     */
+    public String getConfigInstanceId() {
+        return configInstanceId;
+    }
+
+    /**
+     * @param configInstanceId the configInstanceId to set
+     */
+    public void setConfigInstanceId(String configInstanceId) {
+        this.configInstanceId = configInstanceId;
     }
 
 

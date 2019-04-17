@@ -46,4 +46,13 @@ public class Factory {
 	public void setProducerList(HashMap<String, Producer> producerList) {
 		this.producerList = producerList;
 	}
+
+	public String getInputValue(String output_input) {
+		for (Input input : getMessage().getInputList()) {
+			if (output_input.equals(input.getInput())) {
+				return input.getValue();
+			}
+		}
+		return "";
+	}
 }
