@@ -15,8 +15,8 @@ public class Output {
     @SerializedName("type")
     private String type = "";
 
-    @SerializedName("list")
-    private Boolean list = false;
+    @SerializedName("multiple")
+    private Boolean multiple = false;
 
     @SerializedName("rule")
     private String rule = "";
@@ -42,6 +42,20 @@ public class Output {
     }
 
     /**
+     * @return the input
+     */
+    public String getInput() {
+        return input;
+    }
+
+    /**
+     * @param input the input to set
+     */
+    public void setInput(String input) {
+        this.input = input;
+    }
+
+    /**
      * @return the type
      */
     public String getType() {
@@ -56,17 +70,17 @@ public class Output {
     }
 
     /**
-     * @return the list
+     * @return the multiple
      */
-    public Boolean isList() {
-        return list;
+    public Boolean getMultiple() {
+        return multiple;
     }
 
     /**
-     * @param list the list to set
+     * @param multiple the multiple to set
      */
-    public void setList(Boolean list) {
-        this.list = list;
+    public void setMultiple(Boolean multiple) {
+        this.multiple = multiple;
     }
 
     /**
@@ -81,6 +95,20 @@ public class Output {
      */
     public void setRule(String rule) {
         this.rule = rule;
+    }
+
+    /**
+     * @return the option
+     */
+    public ArrayList<Option> getOption() {
+        return option;
+    }
+
+    /**
+     * @param option the option to set
+     */
+    public void setOption(ArrayList<Option> option) {
+        this.option = option;
     }
 
     /**
@@ -109,42 +137,6 @@ public class Output {
      */
     public void setValueList(ArrayList<String> valueList) {
         this.valueList = valueList;
-    }
-
-
-    /**
-     * @return the list
-     */
-    public Boolean getList() {
-        return list;
-    }
-
-    /**
-     * @return the input
-     */
-    public String getInput() {
-        return input;
-    }
-
-    /**
-     * @param input the input to set
-     */
-    public void setInput(String input) {
-        this.input = input;
-    }
-
-    /**
-     * @return the option
-     */
-    public ArrayList<Option> getOption() {
-        return option;
-    }
-
-    /**
-     * @param option the option to set
-     */
-    public void setOption(ArrayList<Option> option) {
-        this.option = option;
     }
 
 
