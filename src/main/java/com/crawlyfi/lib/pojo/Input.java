@@ -22,16 +22,16 @@ public class Input {
     }
 
     public Input(Input input) {
-        setType(new String(input.getType()));
-        setValue(new String(input.getValue()));
+        setType(input.getType());
+        setValue(input.getValue());
         setValueList(cloneValueList(input.getValueList()));
-        setInput(new String(input.getInput()));
+        setInput(input.getInput());
     }
 
     public static ArrayList<String> cloneValueList(ArrayList<String> inputList) {
         ArrayList<String> clonedList = new ArrayList<String>(inputList.size());
         for (String input : inputList) {
-            clonedList.add(new String(input));
+            clonedList.add(input);
         }
         return clonedList;
     }

@@ -1,6 +1,8 @@
 package com.crawlyfi.lib.message_broker;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
 import com.rabbitmq.client.AMQP.BasicProperties;
 import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.Envelope;
@@ -39,7 +41,7 @@ public class QueueConsumer extends EndPoint implements Runnable, Consumer{
 	 * Called when new message is available.
 	 */
 	public void handleDelivery(String consumerTag, Envelope env, BasicProperties props, byte[] body) throws IOException {				
-		handleMessage(new String(body, "UTF-8"));
+		handleMessage(new String(body, StandardCharsets.UTF_8));
 	}
 
 

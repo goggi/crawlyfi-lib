@@ -33,7 +33,7 @@ public class Event {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-    };
+    }
 
     /**
      * @return the parentEvent

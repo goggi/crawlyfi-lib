@@ -27,6 +27,13 @@ public class Output {
     private String value = "";
     private ArrayList<String> valueList = new  ArrayList<String>();
 
+	public String getOptionValue(String optionName) {
+		for(Option option : getOption())
+			if(option.getOption().equals(optionName))
+				return option.getValue();
+		return null;
+	}
+
     /**
      * @return the output
      */
@@ -137,6 +144,13 @@ public class Output {
      */
     public void setValueList(ArrayList<String> valueList) {
         this.valueList = valueList;
+    }
+
+    /**
+     * @return the multiple
+     */
+    public Boolean getMultiple() {
+        return multiple;
     }
 
 

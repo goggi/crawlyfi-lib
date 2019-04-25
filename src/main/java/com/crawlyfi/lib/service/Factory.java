@@ -12,11 +12,17 @@ public class Factory {
 	private Message message;
 	private HashMap<String, Producer> producerList;
 
-	public Factory(){
-	}
-
 	public Message createMessage(String payload) {
 		return new Gson().fromJson(payload, Message.class);
+	}
+
+	public String getInputValue(String output_input) {
+		for (Input input : getMessage().getInputList()) {
+			if (output_input.equals(input.getInput())) {
+				return input.getValue();
+			}
+		}
+		return "";
 	}
 
 	/**
@@ -47,12 +53,5 @@ public class Factory {
 		this.producerList = producerList;
 	}
 
-	public String getInputValue(String output_input) {
-		for (Input input : getMessage().getInputList()) {
-			if (output_input.equals(input.getInput())) {
-				return input.getValue();
-			}
-		}
-		return "";
-	}
+
 }

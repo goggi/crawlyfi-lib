@@ -75,9 +75,7 @@ public class CockpitGenericDao<T> extends ApiGenericDao<T> {
     }
 
     protected boolean entiriesExist(JSONArray crawlerEntriesList){
-        if(crawlerEntriesList != null && crawlerEntriesList.length() > 0 )
-            return true;
-        return false;
+        return crawlerEntriesList != null && crawlerEntriesList.length() > 0;
     }
 
     /**
