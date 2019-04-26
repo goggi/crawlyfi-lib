@@ -13,6 +13,7 @@ public class Message {
     private String projectName = "";
     private String crawlerName = "";
     private Integer rowId = -1;
+    private Integer totalRows = -1;
     private ArrayList<Input> inputList = new ArrayList<>();
     private ArrayList<Output> outputList = new ArrayList<>();
 
@@ -183,6 +184,20 @@ public class Message {
      */
     public void setConfigInstanceId(String configInstanceId) {
         this.configInstanceId = configInstanceId;
+    }
+
+    /**
+     * @return the totalRows
+     */
+    public Integer getTotalRows() {
+        return totalRows;
+    }
+
+    /**
+     * @param totalRows the totalRows to set
+     */
+    public void setTotalRows(Integer totalRows) {
+        this.totalRows = totalRows;
     }
 
 
