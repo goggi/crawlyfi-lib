@@ -20,16 +20,12 @@ public class EventConsumer extends EndPoint implements Runnable, Consumer {
     private Integer prefetch = 0;
     private Boolean autoAck = false;
 
-    public EventConsumer(String[] settings, Integer prefetch) throws IOException {
-        super(settings);
-        this.prefetch = prefetch;
-        channel.basicQos(this.prefetch);
-    }
 
-    public EventConsumer(String[] settings, Integer priority, Integer prefetch) throws IOException {
+    public EventConsumer(String[] settings, Integer prefetch, Boolean autoAck, Integer priority) throws IOException {
         super(settings);
         this.priority = priority;
         this.prefetch = prefetch;
+        this.autoAck = autoAck;
         channel.basicQos(this.prefetch);
     }
 
@@ -46,7 +42,7 @@ public class EventConsumer extends EndPoint implements Runnable, Consumer {
     }
 
     private void ackMessage(Envelope env) {
-        if(!this.autoAck)
+        if(this.autoAck)
             return;
 
         try {
