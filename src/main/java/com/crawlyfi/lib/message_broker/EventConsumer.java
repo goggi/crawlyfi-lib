@@ -19,7 +19,17 @@ public class EventConsumer extends EndPoint implements Runnable, Consumer {
     private Integer priority = 0;
     private Integer prefetch = 0;
     private Boolean autoAck = false;
+    private Boolean exclusive = false;
 
+
+    public EventConsumer(String[] settings, Integer prefetch, Boolean autoAck, Integer priority, Boolean exclusive) throws IOException {
+        super(settings);
+        this.priority = priority;
+        this.prefetch = prefetch;
+        this.autoAck = autoAck;
+        this.exclusive = exclusive;
+        channel.basicQos(this.prefetch);
+    }    
 
     public EventConsumer(String[] settings, Integer prefetch, Boolean autoAck, Integer priority) throws IOException {
         super(settings);
@@ -34,7 +44,7 @@ public class EventConsumer extends EndPoint implements Runnable, Consumer {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put("x-priority", priority);                                
             try {
-                channel.basicConsume(endPointName, this.autoAck, "", false, false, args, this);    
+                channel.basicConsume(endPointName, this.autoAck, "", false, this.exclusive, args, this);    
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
