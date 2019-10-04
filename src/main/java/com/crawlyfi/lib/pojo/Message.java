@@ -6,6 +6,7 @@ import java.util.UUID;
 public class Message {
     private UUID messageId = UUID.randomUUID();
     private String configName = "";
+    private String key = "";
     private String configId = "";
     private String configInstanceId = "";
     private String crawlerId = "";
@@ -198,6 +199,14 @@ public class Message {
      */
     public void setTotalRows(Integer totalRows) {
         this.totalRows = totalRows;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
 
